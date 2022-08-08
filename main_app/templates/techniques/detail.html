@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load embed_video_tags %}
 
 {% block head %}
 <link 
@@ -17,4 +18,5 @@
     <p>{{ technique.description }}</p>
   </div>
 </section>
+{% video technique.video 'small' %}
 {% endblock %}
