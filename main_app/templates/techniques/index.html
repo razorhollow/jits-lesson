@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/techniques/technique-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+<section>
+  {% for technique in techniques %}
+  <a href="/techniques/{{ technique.id }}">
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ technique.name }}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</section>
+{% endblock %}
