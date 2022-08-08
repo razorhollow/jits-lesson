@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Technique(models.Model):
   name = models.CharField(max_length=100)
@@ -12,3 +13,6 @@ class Technique(models.Model):
 
   def thumbnail(self):
     return self.video.split('=')[1]
+
+  def get_absolute_url(self):
+    return reverse('technique_detail', kwargs={'technique_id': self.id})

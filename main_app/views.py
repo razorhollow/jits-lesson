@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Technique
 
 # Create your views here.
@@ -15,3 +16,8 @@ def technique_index(request):
 def technique_detail(request, technique_id):
   technique = Technique.objects.get(id=technique_id)
   return render(request, 'techniques/detail.html', { 'technique': technique })
+
+class TechniqueCreate(CreateView):
+  model = Technique
+  fields = ['name', 'description', 'video']
+  success_url = '/techniques/'

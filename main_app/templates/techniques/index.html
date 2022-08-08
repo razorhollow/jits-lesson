@@ -13,7 +13,7 @@
 {% block content %}
 <section>
   {% for technique in techniques %}
-  <a href="/techniques/{{ technique.id }}">
+  <a href="{% url 'technique_detail' technique.id %}">
     <div class="card" style="width: 18rem;">
       <img src="http://img.youtube.com/vi/{{ technique.thumbnail }}/sddefault.jpg" class="card-img-top" alt="...">
       <div class="card-body">
