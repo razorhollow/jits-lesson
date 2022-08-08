@@ -9,3 +9,6 @@ class Technique(models.Model):
 
   def __str__(self):
     return self.name
+
+  def thumbnail(self):
+    return self.video.split('=')[1]
