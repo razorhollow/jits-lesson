@@ -19,5 +19,5 @@ def technique_detail(request, technique_id):
 
 class TechniqueCreate(CreateView):
   model = Technique
-  fields = ['name', 'description', 'video']
+  fields = ['name', 'description', 'category', 'video']
   success_url = '/techniques/'
