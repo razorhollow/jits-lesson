@@ -47,3 +47,12 @@ class Technique(models.Model):
 
   def get_absolute_url(self):
     return reverse('technique_detail', kwargs={'technique_id': self.id})
+
+  class Meta:
+    ordering = ['category', '-modified']
+
+class Category_Index(models.Model):
+  index = models.IntegerField(default=0)
+
+  def __str__(self):
+    return self.index
