@@ -16,6 +16,10 @@
   <div class="text-box">
     <h1>{{ technique.name }}</h1>
     <p>{{ technique.description }}</p>
+    <div class="actions">
+      <a href="{% url 'technique_update' technique.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'technique_delete' technique.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 {% video technique.video 'small' %}

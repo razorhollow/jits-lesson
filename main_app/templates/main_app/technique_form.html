@@ -6,7 +6,11 @@
 {% endblock %}
 
 {% block content %}
+{% if technique %}
+<h1>Edit Technique Details</h1>
+{% else %}
 <h1>🧠 Add A Technique 🧠</h1> 
+{% endif %}
 <form action="" method="post" class="form-container">
   {% csrf_token %}
   <table>

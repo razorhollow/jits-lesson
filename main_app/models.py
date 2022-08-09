@@ -40,7 +40,8 @@ class Technique(models.Model):
     return self.name
 
   def thumbnail(self):
-    return self.video.split('=')[1]
+    if len(self.video):
+      return self.video.split('=')[1]
 
   def get_absolute_url(self):
     return reverse('technique_detail', kwargs={'technique_id': self.id})

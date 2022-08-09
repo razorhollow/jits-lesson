@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Technique
 
 # Create your views here.
@@ -20,4 +20,12 @@ def technique_detail(request, technique_id):
 class TechniqueCreate(CreateView):
   model = Technique
   fields = ['name', 'description', 'category', 'video']
+  success_url = '/techniques/'
+
+class TechniqueUpdate(UpdateView):
+  model = Technique
+  fields = ['name', 'description', 'category', 'video']
+
+class TechniqueDelete(DeleteView):
+  model = Technique
   success_url = '/techniques/'
