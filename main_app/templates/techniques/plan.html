@@ -11,11 +11,11 @@
 {% endblock %}
 
 {% block content %}
-<section class="d-flex justify-content-between w-90 flex-wrap">
+<section class="d-flex justify-content-center w-90 flex-wrap">
   {% comment %} <h1>This Week's Topic: {{techniques.0.get_current_category}}</h1> {% endcomment %}
   {% for technique in techniques %}
   <a href="{% url 'technique_detail' technique.id %}">
-    <div class="card my-3" style="width: 18rem;">
+    <div class="card m-3" style="width: 18rem;">
       <img src="http://img.youtube.com/vi/{{ technique.thumbnail }}/sddefault.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ technique.name }}</h5>
@@ -28,10 +28,10 @@
 <section class="button-section d-flex flex-column justify-content-center align-items-center">
   <form action="{% url 'load_plan' %}" method="post">
     {% csrf_token %}
-    <button type="submit" class="btn btn-danger rounded-pill m-3">Load New Schedule</button>
+    <button type="submit" class="bottom-button btn btn-danger rounded-pill m-3">Load New Schedule</button>
   </form>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <button type="button" class="bottom-button btn btn-outline-light rounded-pill" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Launch Instructor Notes
   </button>
 

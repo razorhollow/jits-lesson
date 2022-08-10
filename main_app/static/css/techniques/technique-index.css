@@ -3,6 +3,11 @@ a {
   color: black;
 }
 
+.bottom-button {
+  min-width: 300px;
+  width: 30vw;
+}
+
 .card {
   min-height: 30vh;
 }

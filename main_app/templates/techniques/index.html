@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-<section class="d-flex justify-content-center w-90 flex-wrap">
+<section class="card-container d-flex justify-content-center w-90 flex-wrap">
   {% for technique in techniques %}
   <a href="{% url 'technique_detail' technique.id %}">
     <div class="card m-3" style="width: 18rem;">
