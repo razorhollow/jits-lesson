@@ -43,7 +43,7 @@ class Technique(models.Model):
     return self.name
 
   def thumbnail(self):
-    if len(self.video):
+    if len(self.video) and '=' in self.video:
       return self.video.split('=')[1]
 
   def get_absolute_url(self):
