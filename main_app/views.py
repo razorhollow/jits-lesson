@@ -42,6 +42,7 @@ def lesson_plan(request):
   techniques = Technique.objects.filter(category=weekly_category)[:6]
   return render(request, 'techniques/plan.html', {'index': index, 'weekly_category': weekly_category, 'techniques': techniques})
 
+@login_required
 def load_plan(request):
   index = Category_Index.objects.first().index
   weekly_category = CATEGORY_Q[index][0]
@@ -50,7 +51,7 @@ def load_plan(request):
     technique.counter += 1
     technique.save()
   index_object = Category_Index.objects.first()
-  if index_object == len(CATEGORY_Q):
+  if index_object.index >= (len(CATEGORY_Q))-1:
     index_object.index = 0
   else:
     index_object.index += 1
