@@ -21,9 +21,10 @@ CATEGORIES = (
   ('GP', 'Guard Pass'),
   ('GR', 'Guard Retention'),
   ('TD', 'Takedown'),
-  ('WU', 'Warmup'),
   ('OT', 'Other')
 )
+
+
 
 class Technique(models.Model):
   name = models.CharField(max_length=100)
@@ -55,4 +56,13 @@ class Category_Index(models.Model):
   index = models.IntegerField(default=0)
 
   def __str__(self):
-    return self.index
+    return f'{self.index}'
+
+  def get_current_category(self):
+    return CATEGORIES[self.index][1]
+
+  def increment(self):
+    if self.index < len(CATEGORY_Q):
+      self.index += 1
+    else:
+      self.index = 0

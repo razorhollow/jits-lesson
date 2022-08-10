@@ -5,7 +5,30 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from .models import Technique
+from .models import Technique, Category_Index
+
+CATEGORY_Q = [
+  'Closed Guard',
+  'Butterfly  Guard',
+  'Spider Guard',
+  'Lasso Guard',
+  'De La Riva Guard',
+  'Half Guard Bottom',
+  'Half Guard Top',
+  'Side Control Bottom',
+  'Side Control Top',
+  'Mount Top',
+  'Mount Escape',
+  'Back Control',
+  'Back Escape',
+  'Knee On Belly',
+  'North South',
+  'Guard Pass',
+  'Guard Retention',
+  'Takedown',
+  'Warmup',
+  'Other'
+]
 
 # Create your views here.
 class Home(LoginView):
@@ -13,6 +36,11 @@ class Home(LoginView):
 
 def about(request):
   return render(request, 'about.html')
+
+def lesson_plan(request):
+  index = Category_Index.objects.first().index
+  category = CATEGORY_Q[index]
+  return render(request, 'techniques/plan.html', {'index': index, 'category': category})
 
 @login_required
 def technique_index(request):
