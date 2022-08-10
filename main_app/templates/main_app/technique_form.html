@@ -3,15 +3,17 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
+<script src="https://kit.fontawesome.com/4487f42ddb.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block content %}
+<i class="fa-regular fa-brain-circuit fa-6x my-3"></i>
 {% if technique %}
-<h1>Edit Technique Details</h1>
+<h1 class="my-3">Edit Technique Details</h1>
 {% else %}
-<h1>🧠 Add A Technique 🧠</h1> 
+<h1>Add A Technique</h1> 
 {% endif %}
-<form action="" method="post" class="form-container">
+<form action="" method="post" class="form-container my-4">
   {% csrf_token %}
   <table>
     {{ form.as_table }}

@@ -11,10 +11,10 @@
 {% endblock %}
 
 {% block content %}
-<section class="d-flex justify-content-between w-90 flex-wrap">
+<section class="d-flex justify-content-center w-90 flex-wrap">
   {% for technique in techniques %}
   <a href="{% url 'technique_detail' technique.id %}">
-    <div class="card my-3" style="width: 18rem;">
+    <div class="card m-3" style="width: 18rem;">
       <img src="http://img.youtube.com/vi/{{ technique.thumbnail }}/sddefault.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ technique.name }}</h5>
