@@ -24,4 +24,9 @@
   </a>
   {% endfor %}
 </section>
+<form action="{% url 'load_plan' %}" method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-outline-danger">Load New Schedule</button>
+</form>
+<h1>the new index is {{ index }}</h1>
 {% endblock %}
