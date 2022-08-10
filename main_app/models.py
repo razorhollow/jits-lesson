@@ -50,7 +50,7 @@ class Technique(models.Model):
     return reverse('technique_detail', kwargs={'technique_id': self.id})
 
   class Meta:
-    ordering = ['category', '-modified']
+    ordering = ['category', 'modified']
 
 class Category_Index(models.Model):
   index = models.IntegerField(default=0)

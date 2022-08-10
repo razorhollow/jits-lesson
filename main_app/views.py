@@ -7,28 +7,27 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from .models import Technique, Category_Index
 
-CATEGORY_Q = [
-  'Closed Guard',
-  'Butterfly  Guard',
-  'Spider Guard',
-  'Lasso Guard',
-  'De La Riva Guard',
-  'Half Guard Bottom',
-  'Half Guard Top',
-  'Side Control Bottom',
-  'Side Control Top',
-  'Mount Top',
-  'Mount Escape',
-  'Back Control',
-  'Back Escape',
-  'Knee On Belly',
-  'North South',
-  'Guard Pass',
-  'Guard Retention',
-  'Takedown',
-  'Warmup',
-  'Other'
-]
+CATEGORY_Q = (
+  ('CG', 'Closed Guard'),
+  ('BG', 'Butterfly  Guard'),
+  ('SG', 'Spider Guard'),
+  ('LG', 'Lasso Guard'),
+  ('DLR', 'De La Riva Guard'),
+  ('HGB', 'Half Guard Bottom'),
+  ('HGT', 'Half Guard Top'),
+  ('SCB', 'Side Control Bottom'),
+  ('SCT', 'Side Control Top'),
+  ('MT', 'Mount Top'),
+  ('ME', 'Mount Escape'),
+  ('BC', 'Back Control'),
+  ('BE', 'Back Escape'),
+  ('KOB', 'Knee On Belly'),
+  ('NS', 'North South'),
+  ('GP', 'Guard Pass'),
+  ('GR', 'Guard Retention'),
+  ('TD', 'Takedown'),
+  ('OT', 'Other')
+)
 
 # Create your views here.
 class Home(LoginView):
@@ -39,8 +38,9 @@ def about(request):
 
 def lesson_plan(request):
   index = Category_Index.objects.first().index
-  category = CATEGORY_Q[index]
-  return render(request, 'techniques/plan.html', {'index': index, 'category': category})
+  weekly_category = CATEGORY_Q[index][0]
+  techniques = Technique.objects.filter(category=weekly_category)[:6]
+  return render(request, 'techniques/plan.html', {'index': index, 'weekly_category': weekly_category, 'techniques': techniques})
 
 @login_required
 def technique_index(request):
