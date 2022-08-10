@@ -12,7 +12,7 @@
 
 {% block content %}
 <section class="d-flex justify-content-between w-90 flex-wrap">
-  <h1>This Week's Topic: {{techniques.o.category}}</h1>
+  {% comment %} <h1>This Week's Topic: {{techniques.0.get_current_category}}</h1> {% endcomment %}
   {% for technique in techniques %}
   <a href="{% url 'technique_detail' technique.id %}">
     <div class="card my-3" style="width: 18rem;">
