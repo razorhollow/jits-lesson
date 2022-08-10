@@ -6,16 +6,24 @@
 {% endblock %}
 
 {% block content %}
-<h1>Oss! Welcome Home</h1>
-{% if not user.is_authenticated %}
-  <section>
-    <form action="{% url 'home' %}" method="post" class="login">
-      <h1>Login</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class="btn submit">Login</button>
-    </form>
-  </section>
+<div class="header p-5">
+  <div class="welcome-text">
+    <h1>Welcome To JitsPlanner</h1>
+    <h2>Lesson Planning Automation Software</h2>
+    <h5>Automate your lesson plans, grow your student base, and increase your members success with intelligent planning software</h5>
+    <a href="{% url 'signup' %}"><button class='btn btn-outline-light'>Sign Up Now</button></a>
+  </div>
+  <img src="{% static 'images/bhlogo.png' %}" alt="Bearhug BJJ Logo">
+  {% if not user.is_authenticated %}
+    <section class='login-form, ms-5 align-self-end pb-4 pe-4'>
+      <form action="{% url 'home' %}" method="post" class="login">
+        <h3>Login</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit" class="btn btn-outline-light">Login</button>
+      </form>
+    </section>
+</div>
 {% endif %}
 {% endblock %}
