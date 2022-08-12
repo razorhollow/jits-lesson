@@ -61,8 +61,3 @@ class Category_Index(models.Model):
   def get_current_category(self):
     return CATEGORIES[self.index][1]
 
-  def increment(self):
-    if self.index < len(CATEGORY_Q):
-      self.index += 1
-    else:
-      self.index = 0
