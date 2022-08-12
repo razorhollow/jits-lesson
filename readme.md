@@ -7,7 +7,9 @@ JitsPlanner is a lesson-plan automation app that generates weekly lesson plans f
 [The Deployed Project] (https://jits-planner.herokuapp.com)
 
 [Planning Materials](https://trello.com/b/KAMGRfV2/jitsplanner)
-##Screenshots
+
+## Screenshots
+
 ![landing page screenshot](staticfiles/landing.jpg) 
 ![lesson plan screenshot](staticfiles/lesson-plan.jpg)
 ![instructor notes](staticfiles/notes.jpg)
