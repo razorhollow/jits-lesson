@@ -17,6 +17,7 @@ JitsPlanner is a lesson-plan automation app that generates weekly lesson plans f
 ## Technologies Used
 
 - Django
+- Python
 - postgreSQL
 - bootstrap
 - HTML
